@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
   has_many :notes
 
   def genre_name=(name)
-<<<<<<< HEAD
+
       genre = Genre.find_or_create_by(name: name)
       self.genre = genre
   end
@@ -21,7 +21,7 @@ class Song < ActiveRecord::Base
 
   def artist_name
       self.try(:artist).try(:name)
-=======
+
     self.genre = Genre.find_or_create_by(name: name)
     byebug
   end
@@ -40,7 +40,7 @@ class Song < ActiveRecord::Base
     if self.artist
       self.artist.name
     end
->>>>>>> 9e8b82941597ed0583812fdbcb166d7af8d9db64
+
   end
 
 end
