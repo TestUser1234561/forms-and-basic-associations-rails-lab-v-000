@@ -32,4 +32,15 @@ class Song < ActiveRecord::Base
     end
   end
 
+    def note_contents=(contents)
+    contents.each do |content|
+      note = Note.find_or_create_by(content: content)
+      self.notes << note if note.valid?
+    end
+  end
+
+  def note_contents
+    self.notes.map{|n| n.content}
+  end 
+
 end
